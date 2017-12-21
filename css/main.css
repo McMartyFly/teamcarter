@@ -2433,6 +2433,15 @@ a:focus {
   padding: 10px 14px;
   vertical-align: middle;
 }
+.list-grid-layout.partner-organizations > li {
+  border: 1px solid #0dbae8;
+  box-shadow: 5px 5px 15px #888;
+  padding: 0;
+  margin: 0 5px;
+}
+.list-grid-layout.partner-organizations li a img {
+
+}
 /* =WordPress Core
 -------------------------------------------------------------- */
 .alignnone {
@@ -4589,6 +4598,10 @@ div.dsidx-results-widget .dsidx-expanded li {
 }
 .flexslider .slides > li {
   overflow: hidden;
+}
+.flexslider .slides.top-carousel > li img {
+  height: 960px;
+  width: 1440px;
 }
 .flexslider:hover .flex-next {
   right: 25px;
