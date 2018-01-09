@@ -4600,8 +4600,8 @@ div.dsidx-results-widget .dsidx-expanded li {
   overflow: hidden;
 }
 .flexslider .slides.top-carousel > li img {
-  height: 960px;
-  width: 1440px;
+  /*height: auto;*/
+  /*width: 1440px;*/
 }
 .flexslider:hover .flex-next {
   right: 25px;
