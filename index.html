@@ -41,6 +41,11 @@
     <link rel="stylesheet" href="css/main.css"/>
     <!-- Default Theme stylesheet -->
     <link rel="stylesheet" href="css/theme.css"/>
+    <!-- redesign styles -->
+    <link rel="stylesheet" href="css/redesign.css"/>
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
 	<!-- Specifics for Mail Chimp -->
 	<link href="https://cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
 			<style type="text/css">
@@ -79,6 +84,8 @@
 <div class="page-loader">
     <img class="page-loader-img" src="images/page-loader-img.gif" alt="Page Loader"/>
 </div>
+
+<!-- mobile header -->
 <div id="mobile-header" class="mobile-header hidden-md hidden-lg">
     <div class="contact-number">
         <svg xmlns="http://www.w3.org/2000/svg" class="contacts-icon-container" width="24" height="24" viewBox="0 0 24 24">
@@ -90,10 +97,10 @@
     <!-- .contact-number -->
     <div class="mobile-header-nav">
         <div>
-                        <a href="http://marycarter.fathomrealty.com">
-                            <img class="img-responsive" src="images/logos/miniFathom.png" alt="Fathom Realty Logo"/>
-                        </a>
-         </div>
+            <a href="http://marycarter.fathomrealty.com">
+                <img class="img-responsive" src="images/logos/miniFathom.png" alt="Fathom Realty Logo"/>
+            </a>
+        </div>
         <!-- .user-nav -->
         <div class="social-networks header-social-nav">
             <a class="twitter" target="_blank" href="http://www.twitter.com/marycarterhomes"><i class="fa fa-twitter"></i></a><a class="facebook" target="_blank" href="http://www.facebook.com/marycarterproperties"><i class="fa fa-facebook"></i></a><a class="gplus" target="_blank" href="https://plus.google.com/+marycarterproperties"><i class="fa fa-google-plus"></i></a>
@@ -101,10 +108,52 @@
         <!-- .social-networks -->
     </div>
 </div>
+<!-- end mobile header -->
+
+<div class="container redesign banner">
+  <div class="row caption">
+    <p>Welcome Home</p>
+  </div>
+  <div class="row logo-banner">
+    <div class="col teamCarter">
+      <a href="#"><img src="images/TeamCarterLogo_rd_v1.jpg" alt="Team Carter Real Estate" /></a>
+    </div>
+    <div class="col">
+      <p class="slogan">We Are North Carolina's Real Estate Professionals <span><i class="fa fa-phone" aria-hidden="true"></i> 1-919-728-1088</span> </p>
+    </div>
+    <div class="col fathom">
+      <a href="http://marycarter.fathomrealty.com" target="_blank"><img src="images/FathomLogo_rd_v1.jpg" alt="Fathom Realty" /></a>
+    </div>
+  </div>
+</div>
+
+<div class="container redesign about">
+  <div class="row">
+    <div class="col-sm-4 team-card">
+      <div>Mary Carter</div>
+      <img src="images/mary_carter_headshot_v1.png" alt="Mary Carter" />
+      <div>words go here</div>
+    </div>
+    <div class="col-sm-4 team-card">
+      <div>Fathom Realty</div>
+      <img class="fathom" src="images/fathom_realty_headshot_v1.png" alt="Fathom Realty" />
+      <div>words go here</div>
+    </div>
+    <div class="col-sm-4 team-card">
+      <div>David Carter</div>
+      <img src="images/david_carter_headshot_v1.png" alt="David Carter" />
+      <div>words go here</div>
+    </div>
+  </div>
+</div>
+
+
 <header class="site-header header header-variation-one">
     <div class="header-container">
+        <div></div>
 
         <div class="row zero-horizontal-margin">
+            <div></div>
             <div class="left-column">
                 <div id="site-logo" class="site-logo">
                     <div class="logo-inner-wrapper">
@@ -123,15 +172,15 @@
                         <a class="mobile-version visible-xs-inline-block" href="tel://1-919-728-1088" title="Make the Call">1-919-728-1088</a>
                     </div>
                     <!-- .contact-number -->
-					<div style="display: inline-block;padding-right: 30px;">
+					          <div style="display: inline-block;padding-right: 30px;">
                         <a href="http://marycarter.fathomrealty.com">
                             <img class="img-responsive" src="images/logos/miniFathom.png" alt="Fathom Realty of North Carolina"/>
                         </a>
                     </div>
                     <!-- .user-nav -->
-                    <div class="social-networks header-social-nav">
+                    <!-- <div class="social-networks header-social-nav">
                         <a class="twitter" target="_blank" href="https://twitter.com/marycarterhomes"><i class="fa fa-twitter"></i></a><a class="facebook" target="_blank" href="https://www.facebook.com/MaryCarterProperties/"><i class="fa fa-facebook"></i></a><a class="gplus" target="_blank" href="https://plus.google.com/+marycarterproperties"><i class="fa fa-google-plus"></i></a>
-                    </div>
+                    </div> -->
                     <!-- .social-networks -->
                 </div>
                 <!-- .header-top -->
@@ -873,5 +922,19 @@ currency: 'USD'
 </script>
 <!-- end Drip -->
 <script src="https://my.hellobar.com/181a31cf42a723ea3be713e5ff2177494644671b.js" type="text/javascript" charset="utf-8" async="async"></script>
+<script>
+  $( document ).ready(function() {
+    $(window).scroll(function(){
+      var bannerPos = $('.row.logo-banner').offset().top;
+      var scrollPos = $(window).scrollTop();
+      var pinHere   = 440;
+      if(scrollPos >= pinHere){
+        $('.row.logo-banner').addClass('pinned');
+      } else if(scrollPos < pinHere){
+        $('.row.logo-banner').removeClass('pinned');
+      }
+    })
+  });
+</script>
 </body>
 </html>
