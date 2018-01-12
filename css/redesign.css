@@ -192,6 +192,19 @@
 /*PARTNERS STYLES*/
 .partners.redesign {
   background: #34495e;
+  padding-bottom: 15px;
+}
+.partners.redesign .privacy {
+  color: #fff;
+  padding-top: 80px;
+  text-align: center;
+}
+.partners.redesign .privacy a {
+  color: #0dbae8;
+  text-decoration: underline;
+}
+.partners.redesign .privacy a:hover {
+  color: #3eccf4;
 }
 .partners.redesign .title {
   color: #fff;
