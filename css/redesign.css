@@ -10,9 +10,22 @@
   position: relative;
   width: 100%;
 }
+.container.redesign.mobile-phone {
+  display: none;
+  padding: 10px 0;
+}
+.container.redesign.mobile-phone .slogan {
+  font-size: 20px;
+}
+.container.redesign.mobile-phone .col {
+  text-align: center;
+}
+.container.redesign.mobile-phone .col p {
+  margin: 0;
+}
 .container.redesign.banner .underlay {
-  background: rgba(0,0,0,0.2);
-  box-shadow: 0px 5px 57px rgba(0,0,0,1);
+  background: rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 75px rgba(0,0,0,1);
   border-radius: 15px;
   height: 109px;
   left: 50%;
@@ -25,33 +38,16 @@
   color: #50B8E3;
   font-family: 'Berkshire Swash', cursive;
   font-size: 90px;
-  margin-top: 140px;
+  margin: 140px 0 0 0;
   text-align: center;
-  text-shadow: 1px 1px 0 #000,
-    -1px 1px 0 #000,
-    1px -1px 0 #000,
-    -1px -1px 0 #000,
-    0px 1px 0 #000,
-    0px -1px 0 #000,
-    -1px 0px 0 #000,
-    1px 0px 0 #000,
-    2px 2px 0 #000,
-    -2px 2px 0 #000,
-    2px -2px 0 #000,
-    -2px -2px 0 #000,
-    0px 2px 0 #000,
-    0px -2px 0 #000,
-    -2px 0px 0 #000,
-    2px 0px 0 #000,
-    1px 2px 0 #000,
-    -1px 2px 0 #000,
-    1px -2px 0 #000,
-    -1px -2px 0 #000,
-    2px 1px 0 #000,
-    -2px 1px 0 #000,
-    2px -1px 0 #000,
-    -2px -1px 0 #000;
-  /*text-shadow: 1px 1px 1px #2c3e50;*/
+  text-shadow: 1px 1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px -1px 0 #fff,
+    0px 1px 0 #fff,
+    0px -1px 0 #fff,
+    -1px 0px 0 #fff,
+    1px 0px 0 #fff;
 }
 .container.redesign.banner .row.logo-banner {
   background: #fff;
@@ -102,11 +98,27 @@
   color: #ecf0f1;
   width: 100%;
 }
+.container.redesign.about .row.bilingual {
+  padding-top: 0;
+  text-align: center;
+}
+.container.redesign.about .row.bilingual p {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0 50px 10px;
+}
 .container.redesign.about .row {
-  padding: 40px 0;
+  padding: 70px 0 20px;
 }
 .container.redesign.about .row .team-card {
   text-align: center;
+}
+.container.redesign.about .row .team-card .title {
+  color: #50B8E3;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 30px 0 0;
 }
 .container.redesign.about .row .team-card img {
   border: 1px solid #50B8E3;
@@ -114,12 +126,214 @@
   height: auto;
   width: 75%;
 }
+.container.redesign.about .row .team-card .copy {
+  padding: 20px 10px 0;
+}
 .container.redesign.about .row .team-card img.fathom {
   border-radius: 0;
 }
 
+/*SEARCH SECTION STYLES*/
+.container.redesign.search {
+  background: #517394;
+  margin: 0;
+  padding: 50px 0 70px;
+  width: 100%;
+}
+.container.redesign.search p {
+  color: #50B8E3;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
+.container.redesign.search .search-button {
+  background: #50B8E3;
+  border-radius: 10px;
+  box-shadow: 0px 3px 13px rgba(0,0,0,0.2);
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 25px 0 24px;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 400px;
+}
+.container.redesign.search .search-button:hover {
+  background: #7bc9ea;
+}
+.container.redesign.search .search-form {
+  display: none;
+  padding-top: 30px;
+}
+.container.redesign.search iframe {
+  border: 3px solid #34495e;
+  display: block;
+  height: 1000px;
+  margin: 0 auto;
+  width: 1000px;
+}
+
+/*FEATURED PROPERTIES STYLES*/
+.featured-properties.redesign {
+  background: #34495e;
+  padding-top: 60px;
+}
+.featured-properties.redesign .title {
+  color: #fff;
+  text-align: center;
+}
+.featured-properties.redesign .title span {
+  color: #50B8E3;
+}
+
+/*PARTNERS STYLES*/
+.partners.redesign {
+  background: #34495e;
+}
+.partners.redesign .title {
+  color: #fff;
+}
+.partners.redesign .partner-organizations li {
+  box-shadow: 0px 0px 15px rgba(0,0,0,1);
+}
+
+/*FOOTER STYLES*/
+footer.redesign {
+  padding: 40px 0 0;
+}
+footer.redesign .container .fathom {
+  color: #AF2317;
+}
+footer.redesign .container .team-carter {
+  color: #0dbae8;
+}
+footer.redesign a.logo {
+  display: block;
+  text-align: center;
+}
+footer.redesign a.logo img {
+  display: inline-block;
+}
+
+footer.redesign ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+footer.redesign ul li {
+  font-size: 34px;
+  display: inline;
+}
+
+footer.redesign ul li a.fa-facebook-square {
+  color: #3B5998;
+}
+footer.redesign ul li a.fa-facebook-square:hover {
+  color: #5a7abf;
+}
+
+footer.redesign ul li a.fa-twitter-square {
+  color: #1DA1F2;
+}
+footer.redesign ul li a.fa-twitter-square:hover {
+  color: #56b8f5;
+}
+
+footer.redesign ul li a.fa-google-plus-square {
+  color: #DB4437;
+}
+footer.redesign ul li a.fa-google-plus-square:hover {
+  color: #e37268;
+}
+
+footer.redesign ul li a.fa-youtube-square {
+  color: #ff0000;
+}
+footer.redesign ul li a.fa-youtube-square:hover {
+  color: #ff4d4d;
+}
+
+footer.redesign ul li a.fa-instagram {
+  color: #C32AA3;
+}
+footer.redesign ul li a.fa-instagram:hover {
+  color: #db57bf;
+}
+
+footer.redesign ul li a.fa-linkedin-square {
+  color: #007BB5;
+}
+footer.redesign ul li a.fa-linkedin-square:hover {
+  color: #00aeff;
+}
+
+footer.redesign ul li a.fa-pinterest-square {
+  color: #BD081C;
+}
+footer.redesign ul li a.fa-pinterest-square:hover {
+  color: #f50a26;
+}
+
+footer.redesign ul li a {
+  display: inline-block;
+}
+footer.redesign ul li a:hover {
+  text-decoration: none;
+}
+
+footer.redesign .brand {
+  color: #33cc33;
+}
+
+
+/*RESPONSIVE STYLES*/
+@media screen and (max-width: 1290px) {
+  .container.redesign.banner .row.logo-banner .col .slogan {
+    font-size: 20px;
+    padding-top: 11px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .container.redesign.banner .row.logo-banner .col .slogan {
+    font-size: 14px;
+    padding-top: 15px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .underlay {
+    display: none;
+  }
+  .container.redesign.banner .row.caption {
+    font-size: 65px;
+  }
+  .container.redesign.search iframe {
+    height: 1070px;
+    width: 650px;
+  }
+  .row.logo-banner.desk {
+    display: none;
+  }
+  .container.redesign.mobile-phone {
+    display: block;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container.redesign.search iframe {
+    height: 1070px;
+    width: 500px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .container.redesign.search iframe {
+    height: 1100px;
+    width: 320px;
+  }
+}
 /*just for testing*/
 .container.redesign.about div {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
 }
 /*just for testing*/
