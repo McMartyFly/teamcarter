@@ -146,7 +146,8 @@
   font-weight: bold;
   text-align: center;
 }
-.container.redesign.search .search-button {
+.container.redesign.search .search-button,
+.container.redesign.search .realEstate-button {
   background: #50B8E3;
   border-radius: 10px;
   box-shadow: 0px 3px 13px rgba(0,0,0,0.2);
@@ -161,9 +162,14 @@
   text-transform: uppercase;
   max-width: 400px;
 }
-.container.redesign.search .search-button:hover {
+.container.redesign.search .realEstate-button {
+  margin-bottom: 15px;
+}
+.container.redesign.search .search-button:hover,
+.container.redesign.search .realEstate-button:hover {
   background: #7bc9ea;
 }
+
 .container.redesign.search .search-form {
   display: none;
   padding-top: 30px;
