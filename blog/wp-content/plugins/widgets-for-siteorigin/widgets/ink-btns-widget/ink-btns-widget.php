@@ -4,7 +4,7 @@
 Widget Name: Inked Buttons
 Description: The power of click!
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Buttons_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Buttons_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Buttons', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'The power of click!', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/30-button-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#button'
 			),
 			array(),
 			false,

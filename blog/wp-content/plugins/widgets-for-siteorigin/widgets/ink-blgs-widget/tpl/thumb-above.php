@@ -157,7 +157,7 @@ $query_result = new WP_Query( $processed_query );
 							<?php if ($instance['design']['button']) : ?>
 
 								<div class="iw-so-article-button">
-									<a class="<?php echo esc_attr( implode( ' ', $btn_class) ); ?>" href="<?php esc_url( the_permalink() ); ?>">
+									<a class="<?php echo esc_attr( implode( ' ', $btn_class) ); ?>" href="<?php esc_url( get_permalink() ); ?>">
 										<?php echo $instance['design']['btn-text']; ?>
 									</a>
 								</div>

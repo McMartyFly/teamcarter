@@ -136,7 +136,7 @@ class OMAPI_Output {
 	public function set() {
 
 		self::$instance = $this;
-		$this->base 	= OMAPI::get_instance();
+		$this->base     = OMAPI::get_instance();
 		$this->fields   = apply_filters( 'optin_monster_api_output_fields', $this->fields );
 
 	}
@@ -148,7 +148,7 @@ class OMAPI_Output {
 	 */
 	public function api_script() {
 
-		wp_enqueue_script( $this->base->plugin_slug . '-api-script', OPTINMONSTER_API, array( 'jquery' ), $this->base->version );
+		wp_enqueue_script( $this->base->plugin_slug . '-api-script', OPTINMONSTER_APIJS_URL, array( 'jquery' ), $this->base->version );
 
 		if ( version_compare( get_bloginfo( 'version' ), '4.1.0', '>=' ) ) {
 			add_filter( 'script_loader_tag', array( $this, 'filter_api_script' ), 10, 2 );
@@ -163,7 +163,7 @@ class OMAPI_Output {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $tag 	 The HTML script output.
+	 * @param string $tag    The HTML script output.
 	 * @param string $handle The script handle to target.
 	 * @return string $tag   Amended HTML script with our ID attribute appended.
 	 */
@@ -190,7 +190,7 @@ class OMAPI_Output {
 	public function filter_api_url( $url ) {
 
 		// If the handle is not ours, do nothing.
-		if ( false === strpos( $url, 'a.optnmstr.com/app/js/api.min.js' ) ) {
+		if ( false === strpos( $url, str_replace( 'https://', '', OPTINMONSTER_APIJS_URL ) ) ) {
 			return $url;
 		}
 
@@ -304,7 +304,7 @@ class OMAPI_Output {
 			}
 		}
 		$optins = $this->base->get_optins();
-		$fields	= array();
+		$fields = array();
 
 		// If no optins are found, return early.
 		if ( ! $optins ) {
@@ -329,7 +329,7 @@ class OMAPI_Output {
 			}
 
 			// If the type is a sidebar or after post optin, pass over it.
-			if ( isset( $fields['type'] ) && 'post' !== $fields['type'] ) {
+			if ( isset( $fields['type'] ) && ! OMAPI_Utils::is_inline_type( $fields['type'] ) ) {
 				continue;
 			}
 
@@ -425,12 +425,13 @@ class OMAPI_Output {
 					}
 				}
 
-				$taxonomies                = get_taxonomies( array( 'public' => true, '_builtin' => false ) );
-				$taxonomies['post_tag']    = 'post_tag';
-				$taxonomies['post_format'] = 'post_format';
-				$taxonomies 			   = wp_get_object_terms( $post_id, $taxonomies, array( 'fields' => 'ids' ) );
 				foreach ( $fields['taxonomies'] as $taxonomy => $taxonomy_id ) {
-					$tax_ids = explode(',', $taxonomy_id[0] );
+					if ( 'post_tag' === $taxonomy ) {
+						$tax_ids = wp_parse_id_list( $taxonomy_id[0] );
+					} else {
+						$tax_ids = wp_parse_id_list( $taxonomy_id );
+					}
+
 					foreach ( $tax_ids as $tax_id ) {
 						if ( $post_id && $tax_id && has_term( $tax_id, $taxonomy, $post_id ) ) {
 							$content .= $html;
@@ -652,7 +653,7 @@ class OMAPI_Output {
 			}
 
 			// If the type is a sidebar or after post optin, pass over it.
-			if ( isset( $fields['type'] ) && ( 'post' == $fields['type'] || 'sidebar' == $fields['type'] ) ) {
+			if ( isset( $fields['type'] ) && ( 'sidebar' == $fields['type'] || OMAPI_Utils::is_inline_type( $fields['type'] ) ) ) {
 				continue;
 			}
 
@@ -786,21 +787,15 @@ class OMAPI_Output {
 					}
 				}
 
-				$taxonomies                = get_taxonomies( array( 'public' => true, '_builtin' => false ) );
-				$taxonomies['post_tag']    = 'post_tag';
-				$taxonomies['post_format'] = 'post_format';
-				$taxonomies 			   = wp_get_object_terms( $post_id, $taxonomies, array( 'fields' => 'ids' ) );
 				foreach ( $fields['taxonomies'] as $taxonomy => $taxonomy_id ) {
-					$tax_ids = explode(',', $taxonomy_id[0] );
-					foreach ( $tax_ids as $tax_id ) {
-						if ( $post_id && $tax_id && has_term( $tax_id, $taxonomy, $post_id ) ) {
-							$init[ $optin->post_name ] = $html;
-							$this->set_slug( $optin );
-							continue 2;
-						}
+					if ( 'post_tag' === $taxonomy ) {
+						$tax_ids = wp_parse_id_list( $taxonomy_id[0] );
+					} else {
+						$tax_ids = wp_parse_id_list( $taxonomy_id );
 					}
+
 					foreach ( $tax_ids as $tax_id ) {
-						if ( is_tag($tax_id) ) {
+						if ( $post_id && $tax_id && ( has_term( $tax_id, $taxonomy, $post_id ) || is_tag( $tax_id ) ) ) {
 							$init[ $optin->post_name ] = $html;
 							$this->set_slug( $optin );
 							continue 2;
@@ -1133,7 +1128,7 @@ class OMAPI_Output {
 				$this->base->plugin_slug . '-wp-helper',
 				plugins_url( 'assets/js/helper.js', OMAPI_FILE ),
 				array( 'jquery'),
-				$this->base->version,
+				$this->base->version . ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? time() : '' ),
 				true
 			);
 		}

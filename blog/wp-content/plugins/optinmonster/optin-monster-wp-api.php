@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: OptinMonster API
- * Plugin URI:	http://optinmonster.com
+ * Plugin URI:  https://optinmonster.com
  * Description: OptinMonster API plugin to connect your WordPress site to your OptinMonster account.
- * Author:		OptinMonster Team
- * Author URI:	https://optinmonster.com
- * Version:		1.3.2
+ * Author:      OptinMonster Team
+ * Author URI:  https://optinmonster.com
+ * Version:     1.4.2
  * Text Domain: optin-monster-api
  * Domain Path: languages
  *
@@ -20,7 +20,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OptinMonster. If not, see <http://www.gnu.org/licenses/>.
+ * along with OptinMonster. If not, see <https://www.gnu.org/licenses/>.
  */
 
 // Exit if accessed directly.
@@ -40,7 +40,7 @@ define( 'OMAPI_FILE', __FILE__ );
  * @since 1.0.0
  *
  * @package OMAPI
- * @author	Thomas Griffin
+ * @author  Thomas Griffin
  */
 class OMAPI {
 
@@ -60,7 +60,7 @@ class OMAPI {
 	 *
 	 * @var string
 	 */
-	public $version = '1.3.2';
+	public $version = '1.4.2';
 
 	/**
 	 * The name of the plugin.
@@ -142,7 +142,17 @@ class OMAPI {
 	public function init() {
 
 		// Define necessary plugin constants.
-		define( 'OPTINMONSTER_API', '//a.optnmstr.com/app/js/api.min.js' );
+		if ( ! defined( 'OPTINMONSTER_APIJS_URL' ) ) {
+			define( 'OPTINMONSTER_APIJS_URL', 'https://a.optmstr.com/app/js/api.min.js' );
+		}
+
+		if ( ! defined( 'OPTINMONSTER_APP_URL' ) ) {
+			define( 'OPTINMONSTER_APP_URL', 'https://app.optinmonster.com' );
+		}
+
+		if ( ! defined( 'OPTINMONSTER_APP_API_URL' ) ) {
+			define( 'OPTINMONSTER_APP_API_URL', 'https://app.optinmonster.com/v1/' );
+		}
 
 		// Load our global option.
 		$this->load_option();
@@ -184,8 +194,8 @@ class OMAPI {
 
 		// Register global components.
 		$this->ajax      = new OMAPI_Ajax();
-		$this->type   	 = new OMAPI_Type();
-		$this->output 	 = new OMAPI_Output();
+		$this->type      = new OMAPI_Type();
+		$this->output    = new OMAPI_Output();
 		$this->shortcode = new OMAPI_Shortcode();
 
 		// Fire a hook to say that the global classes are loaded.
@@ -224,7 +234,7 @@ class OMAPI {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int $id	  The optin ID used to retrieve a optin.
+	 * @param int $id     The optin ID used to retrieve a optin.
 	 * @return array|bool Array of optin data or false if none found.
 	 */
 	public function get_optin( $id ) {
@@ -261,20 +271,21 @@ class OMAPI {
 			wp_parse_args(
 				$args,
 				array(
-					'post_type'		=> 'omapi',
-					'no_found_rows' => true,
-					'cache_results' => false,
-					'nopaging'		=> true
+					'no_found_rows'          => true,
+					'nopaging'               => true,
+					'post_type'              => 'omapi',
+					'posts_per_page'         => -1,
+					'update_post_term_cache' => false,
 				)
 			)
 		);
+
 		if ( empty( $optins ) ) {
 			return false;
 		}
 
 		// Return the optin data.
 		return $optins;
-
 	}
 
 	/**
@@ -308,7 +319,7 @@ class OMAPI {
 
 		// Prepare variables.
 		$option = $this->get_option();
-		$key	= false;
+		$key    = false;
 		$user   = false;
 		$apikey = false;
 
@@ -461,8 +472,8 @@ class OMAPI {
 	public static function default_options() {
 
 		$options = array(
-			'api'		  => array(),
-			'optins' 	  => array(),
+			'api'         => array(),
+			'optins'      => array(),
 			'is_expired'  => false,
 			'is_disabled' => false,
 			'is_invalid'  => false,
@@ -523,8 +534,8 @@ register_activation_hook( __FILE__, 'optin_monster_api_activation_hook' );
  *
  * @since 1.0.0
  *
- * @global int $wp_version		The version of WordPress for this install.
- * @global object $wpdb			The WordPress database object.
+ * @global int $wp_version      The version of WordPress for this install.
+ * @global object $wpdb         The WordPress database object.
  * @param boolean $network_wide True if WPMU superadmin uses "Network Activate" action, false otherwise.
  */
 function optin_monster_api_activation_hook( $network_wide ) {
@@ -598,10 +609,10 @@ if ( ! function_exists( 'optin_monster' ) ) {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int	 $id	 The ID of the optin to load.
-	 * @param string $type	 The type of field to query.
-	 * @param array	 $args	 Associative array of args to be passed.
-	 * @param bool	 $return Flag to echo or return the optin HTML.
+	 * @param int    $id     The ID of the optin to load.
+	 * @param string $type   The type of field to query.
+	 * @param array  $args   Associative array of args to be passed.
+	 * @param bool   $return Flag to echo or return the optin HTML.
 	 */
 	function optin_monster( $id, $type = 'id', $args = array(), $return = false ) {
 
@@ -633,8 +644,8 @@ if ( ! function_exists( 'optin_monster_tag' ) ) {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param int	 $string The post name of the optin to load.
-	 * @param bool	 $return Flag to echo or return the optin HTML.
+	 * @param int    $string The post name of the optin to load.
+	 * @param bool   $return Flag to echo or return the optin HTML.
 	 */
 	function optin_monster_tag( $id, $return = false ) {
 

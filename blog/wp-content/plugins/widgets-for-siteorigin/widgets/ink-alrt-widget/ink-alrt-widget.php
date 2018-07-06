@@ -4,7 +4,7 @@
 Widget Name: Inked Alert
 Description: Communicate success, warnings, failure or just information.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Alert_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Alert_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Alert', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Communicate success, warnings, failure or just information.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/31-alert-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#Alert'
 			),
 			array(
 			),

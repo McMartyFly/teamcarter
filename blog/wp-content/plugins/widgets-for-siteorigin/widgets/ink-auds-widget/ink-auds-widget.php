@@ -4,7 +4,7 @@
 Widget Name: Inked Audio
 Description: Play self or externally hosted audios.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Audio_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Audio_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Audio', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Play self or externally hosted audios.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/33-audio-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#audio'
 			),
 			array(
 			),

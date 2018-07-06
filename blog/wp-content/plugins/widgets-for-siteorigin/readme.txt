@@ -2,8 +2,8 @@
 Contributors: iamadi
 Tags: bundle, widget, button, alert, accordion, audio, video, blog, divider, person, portfolio, tabs, testimonial, siteorigin
 Requires at least: 3.9
-Tested up to: 4.9
-Stable tag: 1.3.6
+Tested up to: 4.9.6
+Stable tag: 1.3.7
 License: GPLv3 or later
 
 A collection of highly customizable and thoughtfully crafted widgets. Built on top of the SiteOrigin Widgets Bundle.
@@ -40,6 +40,8 @@ Included widgets
 
 > 1.  **Slider Widget** lets you choose from a number of slider settings and styling options to create simple image slider.
 
+> 1.  **Call to Action Widget** The call to action widget can be customised to create eye catching user interfaces.
+
 > 1.  **Alert widgets** are useful elements that can be dropped into a form or inline on a page. It can communicate success, warnings, failure or just information. Choose between 6 beautiful designs and an option to add a close button.
 
 > 1.  **Number Counter Widget** is an engaging way to display numerical statistics to your visitors. This widget is commonly used as a marketing tool to impress visitors.
@@ -62,6 +64,8 @@ Additional Feature:
 
 > 1.  **Blog Slider Widget** lets you easily add eye catching post sliders anywhere on your website. This widget is typically used at the top of pages and goes great in conjunction with the Blog Widget.
 
+> 1.  **Portfolio Enhanced Widget**  builds up on the portfolio widget. Has more layout and template options.
+
 > 1.  **Person Slider Widget** is the best way to showcase your personnel on About Me or Team Member pages, where you would like to highlight their bio. This widget brings together text, imagery, social media links and a smooth slider in a cohesive manner. Use the many settings provided to create unique designs.
 
 > 1.  **Testimonial Slider Widget** is a great way to encourage trust from your visitors by displaying quotes from your customers. This widget will snuggly fit in your Sales, Pricing or Home pages. Use the many settings provided to create unique designs.
@@ -74,11 +78,13 @@ Additional Feature:
 
 > 1.  **Flip Box Widget** Interactive media box with flip animations. is a simple and elegant combination of text and media. This widget is a fantastic way to highlight small bits of information, such as skills, features or services you offer. The box also has 3D animated which flips the box on hover. Choose to use icons or images. In addition you can easily link to other webpages using a highly customizable button.
 
+> 1.  **WooCommerce Products Widget** Display a neat grid of WooCommerce products.
+
 > 1.  **Animation feature** lets you an easily animate widgets. Choose from 18 different animation effects.
 
-Check out <a target="_blank" href="http://widgets.wpinked.com/">**DEMO**</a> and <a target="_blank" href="http://widgets-docs.wpinked.com/">**DOCS**</a>.
+Check out <a target="_blank" href="http://widgets.wpinked.com/">**DEMO**</a> and <a target="_blank" href="https://wpinked.com/widgets-for-siteorigin-docs/">**DOCS**</a>.
 
-The plugin now come with email support. Email us at **team@wpinked.com**. Purchasing the Pro plugin gives you prioritized support and help with minor customizations.
+<a target="_blank" href="https://wpinked.com/forums/">**Support Forum**</a>.
 
 == Installation ==
 
@@ -96,7 +102,11 @@ Once installed, you can choose to Active/Deactivate widget from Plugins -> SiteO
 
 == Changelog ==
 
-= 1.3.6 - January 06 2017  =
+= 1.3.7 - June 22 2018 =
+* Added Call to action widget.
+* Minor Changes
+
+= 1.3.6 - January 06 2018  =
 * Removed admin notice.
 
 = 1.3.5 - December 30 2017  =

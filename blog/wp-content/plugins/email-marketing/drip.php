@@ -7,13 +7,13 @@
  * @package Drip
  * @global object $WP_Drip
  * @author getdrip <support@getdrip.com>
- * @version 1.0.1
+ * @version 1.0.2
  */
 /*
 Plugin Name: Email Marketing by Drip
 Plugin URI: http://www.getdrip.com/?utm_source=wp-plugin&utm_medium=link&utm_campaign=plugins
 Description: Instantly include the Drip tracking script so you can use email and years of best practices to create a double-digit jump in your conversion rate.
-Version: 1.0.1
+Version: 1.0.2
 Author: Drip
 Author URI: http://www.getdrip.com
 License: GPLv2
@@ -25,7 +25,7 @@ require_once( dirname( __FILE__ ) . '/lib/constants.php' );
 class WP_Drip {
 	var $namespace = "drip";
 	var $friendly_name = "Drip";
-	var $version = "1.0.1";
+	var $version = "1.0.2";
 	var $options_name = "drip_options";
 	var $options;
 	var $settings_path;

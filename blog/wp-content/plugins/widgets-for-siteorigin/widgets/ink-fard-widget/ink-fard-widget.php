@@ -4,7 +4,7 @@
 Widget Name: Inked Filter Accordion
 Description: Expand and collapse content that is broken into logical sections.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Filter_Accordion_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Filter_Accordion_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Filter Accordion', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Expand and collapse content that is broken into logical sections.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/29-filter-accordion-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#filter-accordion'
 			),
 			array(
 			),

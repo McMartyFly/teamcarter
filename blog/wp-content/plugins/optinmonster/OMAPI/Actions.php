@@ -69,7 +69,7 @@ class OMAPI_Actions {
 	public function set() {
 
 		self::$instance = $this;
-		$this->base 	= OMAPI::get_instance();
+		$this->base     = OMAPI::get_instance();
 		$this->view     = isset( $_GET['optin_monster_api_view'] ) ? stripslashes( $_GET['optin_monster_api_view'] ) : $this->base->get_view();
 		$this->optin_id = isset( $_GET['optin_monster_api_id'] ) ? absint( $_GET['optin_monster_api_id'] ) : false;
 
@@ -132,10 +132,10 @@ class OMAPI_Actions {
 
 		// Prepare variables.
 		$status = (bool) get_post_meta( $this->optin_id, '_omapi_enabled', true );
-		$new	= $status ? false : true;
+		$new    = $status ? false : true;
 		$field  = 'global';
 		$type   = get_post_meta( $this->optin_id, '_omapi_type', true );
-		if ( 'post' == $type ) {
+		if ( OMAPI_Utils::is_inline_type( $type ) ) {
 			$field = 'automatic';
 		} else if ( 'sidebar' == $type ) {
 			$field = false;
@@ -159,7 +159,7 @@ class OMAPI_Actions {
 	public function test() {
 
 		$status = (bool) get_post_meta( $this->optin_id, '_omapi_test', true );
-		$new	= $status ? false : true;
+		$new    = $status ? false : true;
 		return update_post_meta( $this->optin_id, '_omapi_test', $new );
 
 	}

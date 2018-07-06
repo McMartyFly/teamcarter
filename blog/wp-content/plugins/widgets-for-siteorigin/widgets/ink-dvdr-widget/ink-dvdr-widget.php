@@ -4,7 +4,7 @@
 Widget Name: Inked Divider/Gap
 Description: Draw seperators or create gaps in your page.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Divider_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Divider_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Divider', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Draw seperators or create gaps in your page.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/40-divider-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#divider'
 			),
 			array(
 			),

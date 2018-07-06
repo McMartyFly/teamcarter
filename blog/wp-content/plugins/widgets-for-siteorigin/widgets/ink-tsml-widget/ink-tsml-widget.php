@@ -4,7 +4,7 @@
 Widget Name: Inked Testimonial
 Description: Highlight what your customers think of you.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Testimonial_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Testimonial_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Testimonial', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Highlight what your customers think of you.', 'wpinked-widgets' ),
-				'help' => 'http://widgets-docs.wpinked.com/article/38-testimonial-widget'
+				'help' => 'https://wpinked.com/widgets-for-siteorigin-docs/#testimonial'
 			),
 			array(
 			),

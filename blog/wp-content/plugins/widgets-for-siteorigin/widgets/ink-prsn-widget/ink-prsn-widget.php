@@ -4,7 +4,7 @@
 Widget Name: Inked Person
 Description: Getting to know you better.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Person_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Person_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Person', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Getting to know you better.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/37-person-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#person'
 			),
 			array(
 			),

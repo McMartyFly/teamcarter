@@ -1,8 +1,8 @@
 === News Prime ===
 Contributors: Phoeniixx
 Requires at least: WordPress 4.0
-Tested up to: 4.9.1
-Version: 1.1.6
+Tested up to: 4.9.6
+Version: 1.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, two-columns, right-sidebar, footer-widgets, custom-header, custom-menu, featured-image-header, featured-images, threaded-comments, sticky-post, translation-ready, full-width-template, theme-options
@@ -77,6 +77,17 @@ image-5  https://pixabay.com/en/women-face-young-girl-attractive-2901941/
 News Prime includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+
+= 1.1.9 =
+* Bug Fixes
+* Released: May 22, 2018
+
+= 1.1.8 =
+* Bug Fixes
+* Released: April 9, 2018
+
+= 1.1.7 =
+* Released: February 7, 2018
 
 = 1.1.6 =
 * Released: January 4, 2018

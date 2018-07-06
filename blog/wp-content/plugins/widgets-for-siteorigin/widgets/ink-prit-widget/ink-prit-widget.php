@@ -4,7 +4,7 @@
 Widget Name: Inked Pricing Table
 Description: Simple responsive pricing tables.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Pricing_Table_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Pricing_Table_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Pricing Table', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Simple responsive pricing tables.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/18-pricing-table-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#pricing-table'
 			),
 			array(
 			),

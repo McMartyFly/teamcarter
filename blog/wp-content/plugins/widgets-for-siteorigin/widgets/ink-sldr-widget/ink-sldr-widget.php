@@ -4,7 +4,7 @@
 Widget Name: Inked Slider
 Description: A most basic image slider to leave a great impression.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Slider_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Slider_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Slider', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'A most basic image slider to leave a great impression.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/35-slider-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#slider'
 			),
 			array(
 			),

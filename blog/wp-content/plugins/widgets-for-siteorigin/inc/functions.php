@@ -191,6 +191,18 @@ function wpinked_so_blog_post_col($count, $cols) {
 }
 endif;
 
+if ( ! function_exists ( 'wpinked_so_project_terms' ) ) :
+function wpinked_so_project_terms( $terms ) {
+	$filtering_links = array();
+	foreach ( $terms as $term ) {
+		$filtering_links[] = $term->slug;
+	}
+	$filtering = join( ", ", $filtering_links );
+	$types = join( " ", $filtering_links );
+	return array( $types, $filtering );
+}
+endif;
+
 if ( ! function_exists ( 'wpinked_so_unique_id' ) ) :
 function wpinked_so_unique_id() {
 	return mt_rand(1111, 9999) . '-' . mt_rand(1111, 9999) . '-' . mt_rand(1111, 9999);

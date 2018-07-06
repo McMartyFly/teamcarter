@@ -4,7 +4,7 @@
 Widget Name: Inked Image
 Description: Spice up your images.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Image_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Image_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Image', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Spice up your images.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/59-image-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#image'
 			),
 			array(
 			),

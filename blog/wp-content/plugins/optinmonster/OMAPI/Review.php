@@ -80,8 +80,7 @@ class OMAPI_Review {
 	public function __construct() {
 
 		// Set default class properties
-		$this->protocol = 'https://';
-		$this->url      = $this->protocol . $this->route;
+		$this->url = 'https://' . $this->route;
 
 		// Set our object.
 		$this->set();
@@ -109,7 +108,7 @@ class OMAPI_Review {
 	public function set() {
 
 		self::$instance = $this;
-		$this->base 	= OMAPI::get_instance();
+		$this->base     = OMAPI::get_instance();
 
 	}
 
@@ -336,8 +335,8 @@ class OMAPI_Review {
 		$headers = array(
 			'Content-Type'   => 'application/x-www-form-urlencoded',
 			'Cache-Control'  => 'no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0',
-			'Pragma'		 => 'no-cache',
-			'Expires'		 => 0,
+			'Pragma'         => 'no-cache',
+			'Expires'        => 0,
 			'OMAPI-Referer'  => site_url(),
 			'OMAPI-Sender'   => 'WordPress'
 		);
@@ -384,12 +383,12 @@ class OMAPI_Review {
 
 		// Verify that we can do a check for reviews.
 		$review = get_option( 'omapi_review' );
-		$time	= time();
-		$load	= false;
+		$time   = time();
+		$load   = false;
 
 		if ( ! $review ) {
 			$review = array(
-				'time' 		=> $time,
+				'time'      => $time,
 				'dismissed' => false
 			);
 			$load = true;
@@ -409,7 +408,7 @@ class OMAPI_Review {
 		update_option( 'omapi_review', $review );
 
 		// Run through optins on the site to see if any have been loaded for more than a week.
-		$valid	= false;
+		$valid  = false;
 		$optins = $this->base->get_optins();
 		if ( ! $optins ) {
 			return;
@@ -479,7 +478,7 @@ class OMAPI_Review {
 			$review = array();
 		}
 
-		$review['time'] 	 = time();
+		$review['time']      = time();
 		$review['dismissed'] = true;
 
 		update_option( 'omapi_review', $review );

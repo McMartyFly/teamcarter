@@ -37,6 +37,7 @@ class SiteOrigin_Panels_Styles {
 		// Filtering specific attributes
 		add_filter( 'siteorigin_panels_css_row_margin_bottom', array( $this, 'filter_row_bottom_margin' ), 10, 2 );
 		add_filter( 'siteorigin_panels_css_row_gutter', array( $this, 'filter_row_gutter' ), 10, 2 );
+		add_filter( 'siteorigin_panels_css_widget_css', array( $this, 'filter_widget_style_css' ), 10, 2 );
 	}
 
 	public static function single() {
@@ -216,6 +217,7 @@ class SiteOrigin_Panels_Styles {
 				''               => __( 'Standard', 'siteorigin-panels' ),
 				'full'           => __( 'Full Width', 'siteorigin-panels' ),
 				'full-stretched' => __( 'Full Width Stretched', 'siteorigin-panels' ),
+				'full-stretched-padded' => __( 'Full Width Stretched Padded', 'siteorigin-panels' ),
 			),
 			'priority' => 10,
 		);
@@ -314,6 +316,15 @@ class SiteOrigin_Panels_Styles {
 
 		// Add the general fields
 		$fields = wp_parse_args( $fields, self::get_general_style_fields( 'widget', __( 'Widget', 'siteorigin-panels' ) ) );
+		
+		$fields['margin'] = array(
+			'name'        => __( 'Margin', 'siteorigin-panels' ),
+			'type'        => 'measurement',
+			'group'       => 'layout',
+			'description' => __( 'Margins around the widget.', 'siteorigin-panels' ),
+			'priority'    => 6,
+			'multiple'    => true
+		);
 
 		// How lets add the design fields
 
@@ -352,8 +363,10 @@ class SiteOrigin_Panels_Styles {
 			$attributes['class'] = array_merge( $attributes['class'], $style['class'] );
 		}
 
-		if ( ! empty( $style['background_display'] ) && ! empty( $style['background_image_attachment'] ) ) {
-
+		if ( ! empty( $style['background_display'] ) &&
+			 ! empty( $style['background_image_attachment'] )
+		) {
+			
 			$url = self::get_attachment_image_src( $style['background_image_attachment'], 'full' );
 
 			if (
@@ -410,12 +423,17 @@ class SiteOrigin_Panels_Styles {
 			$css[ 'background-color' ] = $style['background'];
 		}
 
-		if ( ! empty( $style['background_display'] ) && ! empty( $style['background_image_attachment'] ) ) {
-
+		if ( ! empty( $style['background_display'] ) &&
+			 ! ( empty( $style['background_image_attachment'] ) && empty( $style['background_image_attachment_fallback'] ) )
+		) {
 			$url = self::get_attachment_image_src( $style['background_image_attachment'], 'full' );
+			
+			if ( empty( $url ) && ! empty( $style['background_image_attachment_fallback'] ) ) {
+				$url = $style['background_image_attachment_fallback'];
+			}
 
 			if ( ! empty( $url ) ) {
-				$css[ 'background-image' ] = 'url(' . $url[0] . ')';
+				$css['background-image'] = 'url(' .( is_array( $url ) ? $url[0] : $url ) . ')';
 
 				switch ( $style['background_display'] ) {
 					case 'parallax':
@@ -487,7 +505,10 @@ class SiteOrigin_Panels_Styles {
 			$css['padding'] = $style[ 'mobile_padding' ];
 		}
 		
-		if ( ! empty( $style['background_display'] ) && ! empty( $style['background_image_attachment'] ) && $style['background_display'] == 'fixed' ) {
+		if ( ! empty( $style['background_display'] ) &&
+			 $style['background_display'] == 'fixed'  &&
+			 ! ( empty( $style['background_image_attachment'] ) && empty( $style['background_image_attachment_fallback'] ) )
+		) {
 			$css[ 'background-attachment' ] = 'scroll';
 		}
 
@@ -522,6 +543,26 @@ class SiteOrigin_Panels_Styles {
 
 			$standard_css = apply_filters( 'siteorigin_panels_row_style_css', array(), $row['style'] );
 			$mobile_css = apply_filters( 'siteorigin_panels_row_style_mobile_css', array(), $row['style'] );
+
+			if( isset($standard_css['margin-bottom']) ){
+				$css->add_row_css(
+					$post_id,
+					$ri,
+					'',
+					array('margin-bottom' => $standard_css['margin-bottom'])
+				);
+				unset($standard_css['margin-bottom']);
+			}
+			if( isset($mobile_css['margin-bottom']) ){
+				$css->add_row_css(
+					$post_id,
+					$ri,
+					'',
+					array('margin-bottom' => $mobile_css['margin-bottom']),
+					$mobile_width
+				);
+				unset($mobile_css['margin-bottom']);
+			}
 
 			if ( ! empty( $standard_css ) ) {
 				$css->add_row_css(
@@ -562,6 +603,28 @@ class SiteOrigin_Panels_Styles {
 
 				$standard_css = apply_filters( 'siteorigin_panels_cell_style_css', array(), $cell['style'] );
 				$mobile_css = apply_filters( 'siteorigin_panels_cell_style_mobile_css', array(), $cell['style'] );
+
+				if( isset($standard_css['margin-bottom']) ){
+					$css->add_cell_css(
+						$post_id,
+						$ri,
+						$ci,
+						'',
+						array('margin-bottom' => $standard_css['margin-bottom'])
+					);
+					unset($standard_css['margin-bottom']);
+				}
+				if( isset($mobile_css['margin-bottom']) ){
+					$css->add_cell_css(
+						$post_id,
+						$ri,
+						$ci,
+						'',
+						array('margin-bottom' => $mobile_css['margin-bottom']),
+						$mobile_width
+					);
+					unset($mobile_css['margin-bottom']);
+				}
 
 				if ( ! empty( $standard_css ) ) {
 					$css->add_cell_css(
@@ -604,6 +667,30 @@ class SiteOrigin_Panels_Styles {
 
 					$standard_css = apply_filters( 'siteorigin_panels_widget_style_css', array(), $widget['panels_info']['style'] );
 					$mobile_css = apply_filters( 'siteorigin_panels_widget_style_mobile_css', array(), $widget['panels_info']['style'] );
+
+					if( isset($standard_css['margin-bottom']) ){
+						$css->add_widget_css(
+							$post_id,
+							$ri,
+							$ci,
+							$wi,
+							'',
+							array('margin-bottom' => $standard_css['margin-bottom'])
+						);
+						unset($standard_css['margin-bottom']);
+					}
+					if( isset($mobile_css['margin-bottom']) ){
+						$css->add_widget_css(
+							$post_id,
+							$ri,
+							$ci,
+							$wi,
+							'',
+							array('margin-bottom' => $mobile_css['margin-bottom']),
+							$mobile_width
+						);
+						unset($mobile_css['margin-bottom']);
+					}
 
 					if( ! empty( $standard_css ) ) {
 						$css->add_widget_css(
@@ -654,6 +741,22 @@ class SiteOrigin_Panels_Styles {
 		}
 
 		return $gutter;
+	}
+	
+	/**
+	 * Adds widget specific styles not included in the general style fields.
+	 *
+	 * @param $widget_css The CSS properties and values
+	 * @param $widget_style_data The style settings as obtained from the style fields.
+	 *
+	 * @return mixed
+	 */
+	static function filter_widget_style_css( $widget_css, $widget_style_data ) {
+		if ( ! empty( $widget_style_data['margin'] ) ) {
+			$widget_css['margin'] = $widget_style_data['margin'];
+		}
+		
+		return $widget_css;
 	}
 	
 	public static function get_attachment_image_src( $image, $size = 'full' ){

@@ -4,7 +4,7 @@
 Widget Name: Inked Accordion
 Description: Expand and collapse content that is broken into logical sections.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Accordion_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Accordion_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Accordion', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Expand and collapse content that is broken into logical sections.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/28-accordion-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#accordion'
 			),
 			array(
 			),

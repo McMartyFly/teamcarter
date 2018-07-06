@@ -1,8 +1,8 @@
 /* ==========================================================
  * edit.js
  * ==========================================================
- * Copyright 2015 Thomas Griffin.
- * https://thomasgriffin.io
+ * Copyright 2018 Awesome Motive.
+ * https://awesomemotive.com
  * ========================================================== */
 jQuery(document).ready(function ($) {
 

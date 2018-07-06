@@ -84,7 +84,7 @@ class OMAPI_Menu {
 	public function set() {
 
 		self::$instance = $this;
-		$this->base 	= OMAPI::get_instance();
+		$this->base     = OMAPI::get_instance();
 		$this->view     = isset( $_GET['optin_monster_api_view'] ) ? stripslashes( $_GET['optin_monster_api_view'] ) : $this->base->get_view();
 
 	}
@@ -194,8 +194,8 @@ class OMAPI_Menu {
 			$this->base->plugin_slug . '-settings',
 			'omapi',
 			array(
-			   	'ajax'	      => admin_url( 'admin-ajax.php' ),
-			   	'nonce'       => wp_create_nonce( 'omapi-query-nonce' ),
+			    'ajax'        => admin_url( 'admin-ajax.php' ),
+			    'nonce'       => wp_create_nonce( 'omapi-query-nonce' ),
 				'confirm'     => __( 'Are you sure you want to reset these settings?', 'optin-monster-api' ),
 				'date_format' => 'F j, Y',
 				'supportData' => $this->get_support_data(),
@@ -279,7 +279,7 @@ class OMAPI_Menu {
 					'Template types to Show on'        => get_post_meta( $optin->ID, '_omapi_show', true ),
 					'Shortcodes Synced and Recognized' => get_post_meta( $optin->ID, '_omapi_shortcode', true ) ? htmlspecialchars_decode( get_post_meta( $optin->ID, '_omapi_shortcode_output', true ) ) : 'None recognized',
 				);
-				if ( 'post' == $design_type ) {
+				if ( OMAPI_Utils::is_inline_type( $design_type ) ) {
 					$optin_data[$slug]['Automatic Output Status'] = get_post_meta( $optin->ID, '_omapi_automatic', true ) ? 'Enabled' : 'Disabled';
 				}
 
@@ -303,7 +303,7 @@ class OMAPI_Menu {
 		$plugins        = get_plugins();
 		$active_plugins = get_option( 'active_plugins', array() );
 		$used_plugins   = "\n";
-		$api_ping       = wp_remote_request( 'http://api.optinmonster.com/v1/ping' );
+		$api_ping       = wp_remote_request( OPTINMONSTER_APP_URL . '/v1/ping' );
 		foreach ( $plugins as $plugin_path => $plugin ) {
 			if ( ! in_array( $plugin_path, $active_plugins ) ) {
 				continue;
@@ -399,8 +399,8 @@ class OMAPI_Menu {
 	public function get_panels() {
 
 		// Only load the API panel if no API credentials have been set.
-		$panels 	 = array();
-		$creds  	 = $this->base->get_api_credentials();
+		$panels      = array();
+		$creds       = $this->base->get_api_credentials();
 		$can_migrate = $this->base->can_migrate();
 		$is_legacy_active = $this->base->is_legacy_active();
 
@@ -410,7 +410,7 @@ class OMAPI_Menu {
 		}
 
 		// Set default panels.
-		$panels['api'] 	= __( 'API Credentials', 'optin-monster-api' );
+		$panels['api']  = __( 'API Credentials', 'optin-monster-api' );
 
 		// Set the settings panel.
 		//$panels['settings'] = __( 'Settings', 'optin-monster-api' );
@@ -432,16 +432,16 @@ class OMAPI_Menu {
 	 *
 	 * @since 1.0.0
 	 *
-	 * @param string $id 	  The optin ID to target.
+	 * @param string $id      The optin ID to target.
 	 * @param string $setting The possible subkey setting for the option.
-	 * @return string		  HTML setting string.
+	 * @return string         HTML setting string.
 	 */
 	public function get_setting_ui( $id, $setting = '' ) {
 
 		// Prepare variables.
 		$ret      = '';
 		$optin_id = isset( $_GET['optin_monster_api_id'] ) ? absint( $_GET['optin_monster_api_id'] ) : 0;
-		$value 	  = 'optins' == $id ? get_post_meta( $optin_id, '_omapi_' . $setting, true ) : $this->base->get_option( $id, $setting );
+		$value    = 'optins' == $id ? get_post_meta( $optin_id, '_omapi_' . $setting, true ) : $this->base->get_option( $id, $setting );
 		$optin = get_post( $optin_id);
 
 		// Load the type of setting UI based on the option.
@@ -506,7 +506,7 @@ class OMAPI_Menu {
 			case 'optins' :
 				switch ( $setting ) {
 					case 'enabled' :
-				    	$ret = $this->get_checkbox_field( $setting, $value, $id, __( 'Enable campaign on site?', 'optin-monster-api' ), __( 'The campaign will not be displayed on this site unless this setting is checked.', 'optin-monster-api' ) );
+				        $ret = $this->get_checkbox_field( $setting, $value, $id, __( 'Enable campaign on site?', 'optin-monster-api' ), __( 'The campaign will not be displayed on this site unless this setting is checked.', 'optin-monster-api' ) );
 				    break 2;
 
 					case 'automatic' :
@@ -792,7 +792,7 @@ class OMAPI_Menu {
 		}
 
 	    // Add default option.
-	    $ret[]	  = array(
+	    $ret[]    = array(
 		    'name'  => __( 'Select your MailPoet list...', 'optin-monster-api' ),
 		    'value' => 'none'
 	    );
@@ -854,7 +854,7 @@ class OMAPI_Menu {
      *
      * @param string $setting The name of the setting to be saved to the DB.
      * @param mixed $value    The value of the setting.
-     * @param string $id	  The setting ID to target for name field.
+     * @param string $id      The setting ID to target for name field.
      * @param string $label   The label of the input field.
      * @param string $desc    The description for the input field.
      * @param string $place   Placeholder text for the field.
@@ -896,7 +896,7 @@ class OMAPI_Menu {
 	 *
 	 * @param string $setting The name of the setting to be saved to the DB.
 	 * @param mixed $value    The value of the setting.
-	 * @param string $id	  The setting ID to target for name field.
+	 * @param string $id      The setting ID to target for name field.
 	 * @param string $label   The label of the input field.
 	 * @param string $desc    The description for the input field.
 	 * @param string $place   Placeholder text for the field.
@@ -930,7 +930,7 @@ class OMAPI_Menu {
 	 *
 	 * @param string $setting The name of the setting to be saved to the DB.
 	 * @param mixed $value    The value of the setting.
-	 * @param string $id	  The setting ID to target for name field.
+	 * @param string $id      The setting ID to target for name field.
 	 * @param array $classes  Array of classes to add to the field.
 	 * @return string $html   HTML representation of the data.
 	 */
@@ -955,7 +955,7 @@ class OMAPI_Menu {
 	 *
 	 * @param string $setting The name of the setting to be saved to the DB.
 	 * @param mixed $value    The value of the setting.
-	 * @param string $id	  The setting ID to target for name field.
+	 * @param string $id      The setting ID to target for name field.
 	 * @param string $label   The label of the input field.
 	 * @param string $desc    The description for the input field.
 	 * @param string $place   Placeholder text for the field.
@@ -989,7 +989,7 @@ class OMAPI_Menu {
 	 *
 	 * @param string $setting The name of the setting to be saved to the DB.
 	 * @param mixed $value    The value of the setting.
-	 * @param string $id	  The setting ID to target for name field.
+	 * @param string $id      The setting ID to target for name field.
 	 * @param string $label   The label of the input field.
 	 * @param string $desc    The description for the input field.
 	 * @param array $classes  Array of classes to add to the field.
@@ -1022,7 +1022,7 @@ class OMAPI_Menu {
 	 *
 	 * @param string $setting The name of the setting to be saved to the DB.
 	 * @param mixed $value    The value of the setting.
-	 * @param string $id	  The setting ID to target for name field.
+	 * @param string $id      The setting ID to target for name field.
 	 * @param array $data     The data to be used for option fields.
 	 * @param string $label   The label of the input field.
 	 * @param string $desc    The description for the input field.
@@ -1159,9 +1159,9 @@ class OMAPI_Menu {
 		$field ='';
 
 		$field .= '<div class="omapi-support-links ' . $setting . '"><h3>' . $title . '</h3><ul>';
-		$field .= '<li><a target="_blank" href="' . esc_url( 'http://optinmonster.com/docs/' ) . '">'. __('Documentation','optin-monster-api') . '</a></li>';
+		$field .= '<li><a target="_blank" href="' . esc_url( 'https://optinmonster.com/docs/' ) . '">'. __('Documentation','optin-monster-api') . '</a></li>';
 		$field .= '<li><a target="_blank" href="' . esc_url( 'https://wordpress.org/plugins/optinmonster/changelog/' ) . '">'. __('Changelog','optin-monster-api') . '</a></li>';
-		$field .= '<li><a target="_blank" href="' . esc_url( 'https://app.optinmonster.com/account/support/' ) . '">'. __('Create a Support Ticket','optin-monster-api') . '</a></li>';
+		$field .= '<li><a target="_blank" href="' . esc_url( OPTINMONSTER_APP_URL . '/account/support/' ) . '">'. __('Create a Support Ticket','optin-monster-api') . '</a></li>';
 		$field .= '</ul></div>';
 
 		return apply_filters( 'optin_monster_api_support_links', $field, $setting);
@@ -1172,7 +1172,7 @@ class OMAPI_Menu {
 		$field ='';
 
 		$field .= '<div class="omapi-support-data ' . $setting . '"><h3>' . $title . '</h3>';
-		$link = 'https://app.optinmonster.com/account/support/';
+		$link = OPTINMONSTER_APP_URL . '/account/support/';
 		$field .= '<p>' . sprintf( wp_kses( __( 'Download the report and attach to your <a href="%s">support ticket</a> to help speed up the process.', 'optin-monster-api' ), array(  'a' => array( 'href' => array() ) ) ), esc_url( $link ) ) . '</p>';
 		$field .= '<a href="' . esc_url_raw( '#' ) . '" id="js--omapi-support-pdf" class="button button-primary button-large omapi-support-data-button" title="Download a PDF Report for Support" target="_blank">Download PDF Report</a>';
 		$field .= '</div>';
@@ -1378,7 +1378,7 @@ class OMAPI_Menu {
 			$html .= '<li><a target="_blank" href="' . esc_url_raw( 'https://optinmonster.com/docs/' ) . '">' . __('Need Help?', 'optin-monster-api') . '</a></li>';
 			$html .= '<li><a href="' . esc_url_raw( 'https://optinmonster.com/contact-us/' ) . '" target="_blank">' .  __('Send Us Feedback', 'optin-monster-api') . '</a></li>';
 			if( $screen->id === 'toplevel_page_optin-monster-api-settings' ) {
-				$html .= '<li class="omapi-menu-button"><a id="omapi-create-new-optin-button" href="https://app.optinmonster.com/campaigns/new/" class="button button-secondary omapi-new-optin" title="' . __( 'Create New Campaign', 'optin-monster-api' ) . '" target="_blank">' . __( 'Create New Campaign', 'optin-monster-api' ) . '</a></li>';
+				$html .= '<li class="omapi-menu-button"><a id="omapi-create-new-optin-button" href="' . OPTINMONSTER_APP_URL . '/campaigns/new/" class="button button-secondary omapi-new-optin" title="' . __( 'Create New Campaign', 'optin-monster-api' ) . '" target="_blank">' . __( 'Create New Campaign', 'optin-monster-api' ) . '</a></li>';
 			}
 			$html .= '</ul></div>';
 		$html .= '</div>';
@@ -1431,7 +1431,7 @@ class OMAPI_Menu {
 
 		// Return the sas link if we have a sas ID
 		if ( ! empty( $omSasId ) ) {
-			return 'http://www.shareasale.com/r.cfm?u='
+			return 'https://www.shareasale.com/r.cfm?u='
 				   . urlencode( trim( $omSasId ) )
 				   . '&b=601672&m=49337&afftrack=&urllink=optinmonster.com';
 		}
@@ -1475,7 +1475,7 @@ class OMAPI_Menu {
 
 		// Return the trial link if we have a trial ID
 		if ( ! empty( $omTrialId ) ) {
-			return 'http://www.shareasale.com/r.cfm?u='
+			return 'https://www.shareasale.com/r.cfm?u='
 				   . urlencode( trim( $omTrialId ) )
 				   . '&b=601672&m=49337&afftrack=&urllink=optinmonster.com%2Ffree-trial%2F%3Fid%3D' . urlencode( trim( $omTrialId ) );
 		}

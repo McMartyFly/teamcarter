@@ -4,7 +4,7 @@
 Widget Name: Inked Bar Counter
 Description: Animated bars to display your stats.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Bar_Counter_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Bar_Counter_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Bar Counter', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Animated bars to display your stats.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/25-bar-counter-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#bar-counter'
 			),
 			array(
 			),

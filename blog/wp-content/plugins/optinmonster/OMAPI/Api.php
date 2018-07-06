@@ -16,7 +16,7 @@ class OMAPI_Api {
 	 *
 	 * @var string
 	 */
-	public $base = 'app.optinmonster.com/v1/';
+	public $base = OPTINMONSTER_APP_API_URL;
 
 	/**
 	 * Current API route.
@@ -93,8 +93,7 @@ class OMAPI_Api {
 	public function __construct( $route, $creds, $method = 'POST' ) {
 		// Set class properties.
 		$this->route    = $route;
-		$this->protocol = 'https://';
-		$this->url      = $this->protocol . $this->base . $this->route . '/';
+		$this->url      = $this->base . $this->route . '/';
 		$this->method   = $method;
 		$this->user     = ! empty( $creds['user'] ) ? $creds['user'] : '';
 		$this->key      = ! empty( $creds['key'] ) ? $creds['key'] : '';
@@ -132,8 +131,8 @@ class OMAPI_Api {
 		$headers = array(
 			'Content-Type'          => 'application/x-www-form-urlencoded',
 			'Cache-Control'         => 'no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0',
-			'Pragma'		        => 'no-cache',
-			'Expires'		        => 0,
+			'Pragma'                => 'no-cache',
+			'Expires'               => 0,
 			'OMAPI-Referer'         => site_url(),
 			'OMAPI-Sender'          => 'WordPress',
 		);
@@ -164,7 +163,14 @@ class OMAPI_Api {
 		// If not a 200 status header, send back error.
 		if ( 200 != $response_code ) {
 			$type  = ! empty( $response_body->type ) ? $response_body->type : 'api-error';
-			$error = ! empty( $response_body->error ) && ! empty( $response_body->message ) ? stripslashes( $response_body->message ) : stripslashes( $response_body->error );
+			$error = ! empty( $response_body->message ) ? stripslashes( $response_body->message ) : '';
+			if ( empty( $error ) ) {
+				$error = ! empty( $response_body->status_message ) ? stripslashes( $response_body->status_message ) : '';
+			}
+			if ( empty( $error ) ) {
+				$error = ! empty( $response_body->error ) ? stripslashes( $response_body->error ) : 'unknown';
+			}
+
 			return new WP_Error( $type, sprintf( __( 'The API returned a <strong>%s</strong> response with this message: <strong>%s</strong>', 'optin-monster-api' ), $response_code, $error ) );
 		}
 

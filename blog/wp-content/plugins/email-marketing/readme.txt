@@ -2,102 +2,76 @@
 Contributors: getdrip
 Tags: email marketing, marketing automation, email campaign, email newsletters, autoresponders
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.0.0
+Tested up to: 4.9.4
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
+== DESCRIPTION ==
 
-Drip is an email marketing automation platform that’s built to get you deeper insights and more revenue.
+[Drip](https://www.drip.com) is the world’s first and only ecommerce customer relationship manager—or, as our friends call us, ECRM. With deeper customer-level insights and personalization, you’re able to crank up your marketing efforts and truly tailor every workflow, campaign, and message to what your customers are doing.
 
-Part of its power comes from its JavaScript web tracking code, which lets you trigger automations and display popup forms based on who your site visitors are and which pages they’re viewing. The Drip plugin lets you unlock that power for your WordPress site.
+This level of meaningful messaging brings you closer to every lead and customer, which happens to be the exact recipe for customer loyalty and booming business.
 
-It takes just one click to install the Drip plugin. Then, you’ll be ready to capture new subscribers and set up automations all across your website.
+Part of Drip’s power comes from its JavaScript web tracking code, which lets you build a direct link between your WordPress site and your Drip account. Once your code is all set up, you can start triggering automations and display popups based on who’s on your site and which pages they’re checking out.
 
-== SETTING UP DRIP ==
+The best part? It’s the easiest thing you’ll set up all day. It takes just one click to install the Drip plugin. And once it’s in, you’re ready to start collecting more leads, gaining new insights, and triggering more automations all across your website.
 
-[First, you’ll want to set up a Drip account. (It’s free for your first 100 subscribers.)](https://www.drip.co/pricing)
-
-Then, install the Drip plugin and select Drip from the Settings menu in your WordPress sidebar.
-
-Then, enter your Drip Account ID, click Save Changes, and you’re done!
-
-Now you’ll be able to access all of Drip’s automation features.
+Have more than one Drip account? No problem. Each account has its very own JavaScript code.
 
 
-== DRIPS EMAIL MARKETING & AUTOMATION FEATURES ==
+== Let's Get Started ==
 
-By installing the Drip plugin, you’ll be able to do things including:
+Ready to start building customer relationships the way they were meant to be? Here’s what you have to do next:
 
-- Collect subscribers from any page with Drip’s opt-in widget
+**1. Sign up for a Drip account (Pssst. It’s free for first 100 subscribers.)**
 
-- Identify your subscribers and their time zones
+Signing up is easy. [Just head here](https://www.drip.com/pricing), tell us a little bit about yourself, and let the fun begin.
 
-- Apply tags and trigger automations when one of your contacts visits a page
+**2. Install the Drip plugin, and select “Drip” from the Settings menu in your WordPress sidebar.**
 
-- Add trigger links to your pages that kick off automations with one click
+**3. Enter your Drip Account ID, click “Save Changes,” and you’re done!**
 
-- See exactly what pages a contact has visited and when
+See how easy that was? I would never lie to you.
 
-- Score leads using page visit analytics
+If you need a little more help, check out our [Knowledge Base article that walks you through installing your JavaScript snippet](https://help.drip.com/hc/en-us/articles/115003737152-Installing-Your-JavaScript-Snippet). And if you hate words, there’s even a video you can watch there, too.
+
+Now that you’re all set up, you’ll be able to access all of Drip’s automation features. Let’s look at some of those.
+
+
+
+== Drip's Automation Highlight Reel ==
+
+We’ve been building Drip to help you get closer to your customer since day 1. We’re firm believers that the more you know about them and what they’re up to, the better you can communicate with them at the most important times.
+
+By installing the Drip plugin, you’ll be able to do things like:
+
+* Collect subscribers from any page with Drip’s opt-in widget
+* Identify your subscribers and their time zones
+* Apply tags and trigger automations when one of your contacts visits a page
+* Add trigger links to your pages that kick off automations with one click
+* See exactly what pages a contact has visited and when
+* Score leads using page visit analytics
 
 And that’s in addition to all the other email and automation features that come with Drip, like:
 
-- Autoresponders, campaigns, broadcasts, newsletters, transactional emails, and more
+* Facebook Custom Audiences and Facebook Lead Ads
+* Autoresponders, campaigns, broadcasts, newsletters, transactional emails, and more
+* Easy segmentation, personalization, and dynamic Liquid content
+* The industry’s best visual workflow builder
+* Advanced integrations to track revenue, fix cart abandonment, and beyond
+* Person-based (not list-based) contact management and built-in list pruning
 
-- Easy segmentation, personalization, and dynamic content
-
-- The industry’s best [visual workflow builder](https://www.drip.co/workflows)
-
-- Advanced integrations to track revenue, fix cart abandonment, and beyond
-
-- Person-based (not list-based) contact management and built-in list pruning
-
-… and much more. [See more features here.](https://www.drip.co/features)
-
-Get your Drip account, install the plugin, and you’ll instantly be ready to get more subscribers, customers, and revenue with email marketing automation. [Set up your account here.](https://www.drip.co/pricing)
+And more. Yes, really. There is more. [Peruse the rest of our features](https://www.drip.com/features) and take a little inspiration with you. We’re serious about getting closer to the customer, and we hope this helps you do just that.
 
 
-== MORE INFO ==
-
-- [Check out Drip's homepage](https://www.drip.co)
-- [Go to the FAQ](https://www.drip.co/faq)
-- [See all Drip’s integrations](https://www.drip.co/integrations)
-- [Get a detailed guide to the Drip JavaScript snippet](http://kb.getdrip.com/general/installing-your-javascript-snippet/#wordpress)
-- [Access Drip’s API documentation](https://www.drip.co/docs)
-
-
-== SCREENSHOTS ==
+== Screenshots ==
 
 1. The Drip plugin settings page
-2. Find your Account ID in your Drip's Settings > Account > General Info
+2. Find your Account ID in your Drip account under **Settings** > **Account** > **General Info**
 
-
-== Installation ==
-
-1. Upload the `email-marketing` folder to the `/wp-content/plugins/` directory
-2. Activate the **Email Marketing by Drip** plugin through the 'Plugins' menu in WordPress
-3. Configure the plugin by going to the `Drip` page that appears in your Settings menu
-
-== Frequently Asked Questions ==
-
-= How do I install the tracking script on my website? =
-
-This plugin automatically installs the Drip tracking script for you. All you
-have to do is install this plugin and enter your Account ID on its settings page.
-Your Account ID can be found on the [Settings > Site Setup](https://www.getdrip.com/settings/site)
-page.
-
-= Do I need to have a Drip account? =
-
-Yep—but it works even with our free-forever plan. [Get your account here.](https://www.drip.co/pricing)
-
-= Who can I contact for help? =
-
-We're always happy to help with setting it up - just [contact us here](https://www.drip.co/contact)
-to get started!
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.2 =
 * Initial release.

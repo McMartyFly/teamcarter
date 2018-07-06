@@ -4,7 +4,7 @@
 Widget Name: Inked Portfolio
 Description: Show off your work.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Folio_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Folio_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Portfolio', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Show off your work.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/14-portfolio-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#portfolio'
 			),
 			array(
 			),

@@ -4,7 +4,7 @@
 Widget Name: Inked Blog
 Description: A widget to display Blog posts.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Blog_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Blog_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Blog', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'A widget to display Blog posts.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/13-blog-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#blog'
 			),
 			array(
 			),

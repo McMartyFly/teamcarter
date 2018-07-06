@@ -4,7 +4,7 @@
 Widget Name: Inked Number Counter
 Description: Animated numbers to display your stats.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Number_Counter_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Number_Counter_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Number Counter', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Animated numbers to display your stats.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/26-number-counter-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#number-counter'
 			),
 			array(
 			),

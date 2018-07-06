@@ -322,7 +322,7 @@ function news_prime_menu() {
 	
 	$news_prime_menu_title = __("News Prime",'news-prime');
 	
-	add_theme_page($news_prime_page_title, $news_prime_menu_title, 'edit_theme_options', 'news_prime_pro', 'news_prime_pro_page');  
+	add_theme_page($news_prime_page_title, $news_prime_menu_title, 'edit_theme_options', 'news-prime-pro', 'news_prime_pro_page');  
 	
 } 
 
@@ -347,11 +347,11 @@ function news_prime_pro_page(){
 			
 			<h2 class="nav-tab-wrapper woo-nav-tab-wrapper">
 			
-				<a class="nav-tab<?php  if($importer_new==1 || $importer_new==''){ echo esc_attr( " active" ); }?>" href="?page=news_prime_pro&amp;importer=demo-documentation&amp;active_class=1"><?php _e('Live Demo and Documentation','news-prime'); ?></a>
+				<a class="nav-tab<?php  if($importer_new==1 || $importer_new==''){ echo esc_attr( " active" ); }?>" href="?page=news-prime-pro&amp;importer=demo-documentation&amp;active_class=1"><?php _e('Live Demo and Documentation','news-prime'); ?></a>
 				
-				<a class="nav-tab<?php  if($importer_new==2){ echo esc_attr( " active" ); }?>" href="?page=news_prime_pro&amp;importer=free-vs-pro&amp;active_class=2"><?php _e('Free Vs Pro','news-prime'); ?></a>
+				<a class="nav-tab<?php  if($importer_new==2){ echo esc_attr( " active" ); }?>" href="?page=news-prime-pro&amp;importer=free-vs-pro&amp;active_class=2"><?php _e('Free Vs Pro','news-prime'); ?></a>
 				
-				<a class="nav-tab<?php  if($importer_new==3){ echo esc_attr( " active" ); }?>" href="?page=news_prime_pro&amp;importer=phoen-data-importer&amp;active_class=3"><?php _e('One Click Demo Import','news-prime'); ?></a>
+				<a class="nav-tab<?php  if($importer_new==3){ echo esc_attr( " active" ); }?>" href="?page=news-prime-pro&amp;importer=phoen-data-importer&amp;active_class=3"><?php _e('One Click Demo Import','news-prime'); ?></a>
 			
 			</h2>
 					
@@ -398,10 +398,10 @@ function news_prime_pro_page(){
 						} else {
 							$install_url = add_query_arg(array(
 								'action' => 'activate',
-								'plugin' => rawurlencode( $plugin_name . '/' . $plugin_name . '.php' ),
+								'plugin' => rawurlencode( $plugin_name . '/main.php' ),
 								'plugin_status' => 'all',
 								'paged' => '1',
-								'_wpnonce' => wp_create_nonce('activate-plugin_' . $plugin_name . '/' . $plugin_name . '.php'),
+								'_wpnonce' => wp_create_nonce('activate-plugin_' . $plugin_name . '/main.php'),
 							), network_admin_url('plugins.php'));
 							$button_class = 'activate-now button-primary';
 							$button_txt = esc_html__( 'Active Now', 'news-prime' );

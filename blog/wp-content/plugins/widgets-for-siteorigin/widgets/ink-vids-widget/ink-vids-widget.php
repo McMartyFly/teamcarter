@@ -4,7 +4,7 @@
 Widget Name: Inked Video
 Description: Play self or externally hosted videos.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Video_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Video_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Video', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Play self or externally hosted videos.', 'wpinked-widgets' ),
-				'help' => 'http://widgets-docs.wpinked.com/article/34-video-widget'
+				'help' => 'https://wpinked.com/widgets-for-siteorigin-docs/#video'
 			),
 			array(
 			),

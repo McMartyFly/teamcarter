@@ -1,10 +1,10 @@
 /*
 Theme Name: News Prime
 Theme URI: https://www.phoeniixx.com/product/news-prime/
-Author: phoeniixx
+Author: Phoeniixx
 Author URI: http://phoeniixx.com
 Description: News Prime is a Single Page Layout WordPress theme, which is lightweight and designed specifically for news and magazine portal. This theme can be used for blogging and personal sites. We have used seven widgets such as News Prime Author Widget, News Prime Images Slider Widget, News Prime Popular Post Widget, News Prime Recent Post Widget, News Pime Sidebar Tab Widget, News Pime Style1 Widget, News Pime Style2 Widget. News Prime adapts your website to mobile, tablet, desktop and laptop since it is quite responsive and flexible.
-Version: 1.1.6
+Version: 1.1.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: news-prime
@@ -1327,6 +1327,21 @@ h1.entry-title, h2.entry-title {
 	margin-right: 2%;
 }
 
+.widget-area .search-form .search-submit,
+.widget-area .search-form .search-submit:hover {
+    background-color: #303030;
+    border: 0 none;
+	box-shadow: none;
+	text-shadow: none;
+    color: #fff;
+    line-height: 1;
+    padding: 11px 15px;
+}
+
+.widget-area .search-form .search-submit:hover {
+	opacity: 0.8;
+}
+
 #secondary h2.widget-title,
 h3.new_headline {
     border-bottom: 1px solid #333;
@@ -1342,6 +1357,7 @@ h3.new_headline {
     border: 1px solid #333;
     display: inline-block;
     font-size: 13px;
+	font-weight: 600;
     margin-bottom: 30px;
     padding: 7px 15px;
     text-transform: uppercase;
@@ -1832,7 +1848,7 @@ h3.new_headline {
 
 .main-footer ul li a {
     color: #fff;
-	font-size: 13px;
+	font-size: 14px;
 }
 
 .main-footer td,

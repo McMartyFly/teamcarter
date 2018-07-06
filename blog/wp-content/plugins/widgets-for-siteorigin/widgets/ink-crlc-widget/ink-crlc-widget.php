@@ -4,7 +4,7 @@
 Widget Name: Inked Circle Counter
 Description: Animated circles to display your stats.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Circle_Counter_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Circle_Counter_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Circle Counter', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Animated circles to display your stats.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/24-circle-counter-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#circle-counter'
 			),
 			array(
 			),

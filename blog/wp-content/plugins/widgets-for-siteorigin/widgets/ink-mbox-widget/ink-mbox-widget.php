@@ -4,7 +4,7 @@
 Widget Name: Inked Media Box
 Description: Highlight important bits of information.
 Author: wpinked
-Author URI: http://widgets.wpinked.com
+Author URI: https://wpinked.com
 */
 
 class Inked_Media_Box_SO_Widget extends SiteOrigin_Widget {
@@ -16,7 +16,7 @@ class Inked_Media_Box_SO_Widget extends SiteOrigin_Widget {
 			__( 'Inked Media Box', 'wpinked-widgets' ),
 			array(
 				'description' => __( 'Highlight important bits of information.', 'wpinked-widgets' ),
-				'help'        => 'http://widgets-docs.wpinked.com/article/36-media-box-widget'
+				'help'        => 'https://wpinked.com/widgets-for-siteorigin-docs/#media-box'
 			),
 			array(
 			),
